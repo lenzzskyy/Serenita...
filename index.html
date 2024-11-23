@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lenzz Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Video Wallpaper -->
+    <div class="video-background">
+        <video autoplay muted loop id="bgVideo">
+            <source src="videoo112.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Navbar -->
+   <!-- Navbar -->
+<header>
+    <div class="navbar">
+        <a href="#" class="logo">Serenita</a>
+        <nav class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="#home" onclick="navigateTo('home')">Home</a></li>
+                <li><a href="#about" onclick="navigateTo('about')">About</a></li>
+                <li><a href="#menu" onclick="navigateTo('menu')">Menu</a></li>
+                <li><a href="#menu combo" onclick="navigateTo('menu combo')">Menu Combo</a></li>  
+                <li><a href="#rating" onclick="navigateTo('rating')">Rating</a></li>
+                <li><a href="#contact" onclick="navigateTo('contact')">Contact Us</a></li>
+                <li><a href="#blog" onclick="navigateTo('blog')">Blog</a></li>
+                <li class="cart">
+                    <i class="cart-icon" onclick="showCart()">🛒</i>
+                    <span id="cartCount">0</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+
+    <!-- Pages (Home, About, Menu, Rating) -->
+    <div id="home" class="page active">
+        <h1>Selamat Datang Di Serenita</h1>
+        <p>Calm & Relaxing </p>
+        <!-- Best Seller Section -->
+        <section class="best-seller">
+            <h2>Best Seller</h2>
+            <div class="best-seller-items">
+                <div class="food-item">
+                    <div class="food-content">
+                        <img src="coffee o.jpg" alt="Coffee O" class="food-img">
+                        <h3>Coffee O</h3>
+                        <p>Rp.25.000</p>
+                    </div>
+                    <div class="food-description">
+                        <button class="order-btn" onclick="addToCart('Coffee O', 25000)">Order</button>
+                        <p>Kopi adalah minuman dari biji pilihan dengan rasa dan aroma khas, sempurna untuk menemani momen pagi hingga santai sore</p>
+                    </div>
+                </div>
+                <div class="food-item">
+                    <div class="food-content">
+                        <img src="dimsum.jpg" alt="Dimsum Mentai" class="food-img">
+                        <h3>Dimsum Mentai</h3>
+                        <p>Rp.25.000</p>
+                    </div>
+                    <div class="food-description">
+                        <button class="order-btn" onclick="addToCart('Dimsum Mentai', 25000)">Order</button>
+                        <p>Dimsum mentai adalah variasi dimsum yang menggabungkan cita rasa khas dimsum tradisional</p>
+                    </div>
+                </div>
+                <div class="food-item">
+                    <div class="food-content">
+                        <img src="tiramisu.jpg" alt="Tiramisu Cake" class="food-img">
+                        <h3>Tiramisu Cake</h3>
+                        <p>Rp.18.000</p>
+                    </div>
+                    <div class="food-description">
+                        <button class="order-btn" onclick="addToCart('Tiramisu Cake', 18000)">Order</button>
+                        <p>Tiramisu Cake adalah variasi dari dessert klasik Italia yang terkenal, Tiramisu, namun disajikan dalam bentuk kue lapis</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div id="about" class="page">
+        <div class="about-header">
+            <h1>Tentang Kami</h1>
+            <p>Kopitiam Serenita: Menghadirkan Kenikmatan Kopi dalam Setiap Cangkir</p>
+        </div>
+    
+        <div class="about-content">
+            <div class="about-text">
+                <p>Kopitiam Serenita adalah sebuah kedai kopi yang didirikan pada tahun 2024 oleh sekelompok mahasiswa dengan visi untuk menciptakan ruang yang menyatukan tradisi kopi klasik dan kenyamanan modern. Kami percaya bahwa setiap cangkir kopi memiliki cerita, dan kami ingin berbagi cerita itu dengan Anda.</p>
+    
+                <p>Terinspirasi oleh kedai kopi tradisional di Kopitiam Ciamso yang berlokasi di Jl. Taman Apsari No. 25A, Kopitiam Serenita menggabungkan resep kopi yang diwariskan turun-temurun dengan inovasi kontemporer. Di sini, setiap kopi yang kami sajikan adalah perpaduan sempurna antara cita rasa klasik dan sentuhan modern yang memanjakan lidah.</p>
+    
+                <p>Sejak pembukaannya, kedai ini telah dikenal karena suasananya yang hangat dan ramah, serta menu yang mengedepankan kualitas bahan lokal dan teknik penyajian yang unik. Kami berkomitmen untuk memberikan pengalaman kopi yang istimewa dan otentik, menjadikan Kopitiam Serenita sebagai tempat berkumpul yang dicintai oleh masyarakat.</p>
+            </div>
+    
+            <div class="about-image">
+                <img src="kedai1.jpg" alt="Kedai Kopitiam Serenita" />
+            </div>
+        </div>
+    
+        <div class="our-mission">
+            <h2>Visi & Misi</h2>
+            <ul>
+                <li>Menjadi tempat kopi yang memadukan tradisi dan inovasi.</li>
+                <li>Memberikan pengalaman kopi yang otentik dan berkualitas.</li>
+                <li>Menjadi pusat komunitas yang menyatukan berbagai kalangan.</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+    
+
+    <div id="menu" class="page">
+        <h1>Menu</h1>
+        <section class="food-menu">
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="coffee o.jpg" alt="Coffee O" class="food-img">
+                    <h3>Coffee O</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Coffee O', 25000)">Order</button>
+                    <p>Kopi adalah minuman dari biji pilihan dengan rasa dan aroma khas, sempurna untuk menemani momen pagi hingga santai sore</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="minum1.jpg" alt="Lychee Tea" class="food-img">
+                    <h3>Lychee Tea</h3>
+                    <p>Rp 18.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Lychee Tea', 18000)">Order</button>
+                    <p>Lychee tea memiliki perpaduan rasa manis alami dari buah leci yang segar dengan sedikit aroma bunga dan rasa teh yang ringan</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="minum2.jpg" alt="Millo Frappe" class="food-img">
+                    <h3>Millo Frappe</h3>
+                    <p>Rp 15.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Millo Frappe', 15000)">Order</button>
+                    <p>Milo frappe adalah minuman dingin yang terbuat dari campuran bubuk Milo dan susu yang creamy</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="sinom.jpg" alt="Sinom" class="food-img">
+                    <h3>Sinom</h3>
+                    <p>Rp 20.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Sinom', 20000)">Order</button>
+                    <p>Sinom adalah minuman tradisional khas Jawa Timur, Indonesia yang terbuat dari daun asam muda, berpadu dengan gula rempah, menciptakan rasa segar, asam-manis, dan menyehatkan</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="strawberry milkshake.jpg" alt="Strawberry Milkshake" class="food-img">
+                    <h3>Strawberry Milkshake</h3>
+                    <p>Rp 20.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Strawberry Milkshake', 20000)">Order</button>
+                    <p>Strawberry Milkshake adalah minuman manis yang terbuat dari campuran es krim vanila bercampur dengan manisnya strawberry</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="airmineral.jpg" alt="Air Mineral" class="food-img">
+                    <h3>Air Mineral</h3>
+                    <p>Rp 5.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Air Mineral', 5000)">Order</button>
+                    <p>Air asli dari pegunungan</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="mie banglades.jpg" alt="Mie Banglades" class="food-img">
+                    <h3>Mie Banglades</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Mie Banglades', 25000)">Order</button>
+                    <p>Mie Bangladesh adalah hidangan mie yang berasal dari bumbu rempah yang dan cita rasa gurih pedas, terinspirasi dari kuliner Bangladesh yang autentik</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="tiramisu.jpg" alt="Tiramisu Cake" class="food-img">
+                    <h3>Tiramisu Cake</h3>
+                    <p>Rp 18.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Tiramisu Cake', 18000)">Order</button>
+                    <p>Tiramisu Cake adalah variasi dari dessert klasik Italia yang terkenal, dipadu dengan kirim mascarpone, taburan bubuk kakao, dan cita rasa manis yang elegan</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="cheesecake.jpg" alt="Chessecake" class="food-img">
+                    <h3>Chessecake</h3>
+                    <p>Rp 18.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Chessecake', 18000)">Order</button>
+                    <p>Cheese Cake adalah salah satu kue lembut yang teruat dari krim keju, gula, dan telur, dengan dasar biskuit renyah, menghadirkan perpaduan rasa manis dan creamy yang sempurna</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="chocolate cake.jpg" alt="Chocolate Cake" class="food-img">
+                    <h3>Chocolate Cake</h3>
+                    <p>Rp 18.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Chocolate Cake', 18000)">Order</button>
+                    <p>Chocolate Cake adalah kue lembut dan moist dengan rasa cokelat yang kaya, sempurna untuk pecinta manis dan cocok dinikmati kapan saja</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="sampler.jpg" alt="Sampler" class="food-img">
+                    <h3>Sampler</h3>
+                    <p>Rp 30.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Sampler', 30000)">Order</button>
+                    <p>Blazzing Sampler adalah hidangan pembuka atau camilan yang terdiri dari berbagai jenis makanan ringan dalam satu piring saji besar</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="churros.jpg" alt="churros" class="food-img">
+                    <h3>Churros</h3>
+                    <p>Rp 15.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Churros', 15000)">Order</button>
+                    <p>	Churros adalah camilan yang renah berbentuk panjang yang digoreng hingga keemasan, disajikan dengan taburan gula atau celupan cokelat</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="spaghetti bolognese.jpg" alt="Spagetti Bolognese" class="food-img">
+                    <h3>Spagetti Bolognese</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Spaghetti Bolognese', 25000)">Order</button>
+                    <p>Spaghetti Bolognese adalah hidangan pasta dengan spaghetti yang disajikan bersama saus bolognese yang kaya, terbuat dari daging cincang, tomat, bawang, dan rempah-rempah, menciptakan kombinasi rasa gurih yang lezat</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="spaghetti carbonara.jpg" alt="Spagetti Carbonara" class="food-img">
+                    <h3>Spagetti Carbonara</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Spaghetti Carbonara', 25000)">Order</button>
+                    <p>Spaghetti Carbonara adalah hidangan pasta dengan saus creamy yang terbuat dari telur, keju Parmesan, Pancetta, dan sedikit lada hitam, menciptakan rasa gurih dan lembut yang menggoda</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="honey garlic chicken.jpg" alt="Honey Garlic Chicken" class="food-img">
+                    <h3>Honey Garlic Chicken</h3>
+                    <p>Rp 35.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Honey Garlic Chicken', 35000)">Order</button>
+                    <p>	Honey Garlic Chicken adalah hidangan yang menggoda dengan perpaduan rasa manis, gurih, dan sedikit pedas.</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="chicken chili padi.jpg" alt="Chiken Chili Padi" class="food-img">
+                    <h3>Chicken Chilli Padi</h3>
+                    <p>Rp 35.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Chiken Chili Padi', 35000)">Order</button>
+                    <p>Chicken Chili Padi adalah hidangan yang menggugah selera dengan sentuhan rasa pedas.</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="ramen.jpg" alt="Bakmie Banglades" class="food-img">
+                    <h3>Bakmie Banglades</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Bakmie Banglades', 25000)">Order</button>
+                    <p>Mie Bangladesh adalah hidangan mie yang berasal dari bumbu rempah yang dan cita rasa gurih pedas, terinspirasi dari kuliner Bangladesh yang autentik</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="kentang.jpg" alt="French Fries" class="food-img">
+                    <h3>French Fries</h3>
+                    <p>Rp 15.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('French Fries', 15000)">Order</button>
+                    <p>Kentang goreng adalah camilan renyah yang terbuat dari irisan kentang yang digoreng hingga keemasan, dengan rasa gurih dan tekstur luar yang kriuk</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="dimsum.jpg" alt="Dimsum Mentai" class="food-img">
+                    <h3>Dimsum Mentai</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Dimsum Mentai', 25000)">Order</button>
+                    <p>Dimsum mentai adalah variasi dimsum yang menggabungkan cita rasa khas dimsum tradisional</p>
+                </div>
+            </div>
+                 
+            <!-- Tambahkan lebih banyak item makanan sesuai kebutuhan -->
+        </section>
+        <section class="sponsors">
+            <h2>Our Sponsors</h2>
+            <div class="sponsor-logos">
+                <img src="sponsor1.png" alt="Sponsor 1">
+                <img src="sponsor2.png" alt="Sponsor 2">
+                <img src="sponsor3.png" alt="Sponsor 3">
+            </div>
+        </section>
+    </div>
+    <div id="menu combo" class="page">
+        <h1>Menu Combo</h1>
+        <section class="food-menu">
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo1.jpg" alt="Combo Asik" class="food-img">
+                    <h3>Combo Asik</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Asik', 25000)">Order</button>
+                    <p>Combo Asik adalah pilihan menu yang sempurna untuk para pencinta makanan manis dan gurih</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo2.jpg" alt="Combo Rwek" class="food-img">
+                    <h3>Combo Rwek</h3>
+                    <p>Rp 20.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Rwek', 20000)">Order</button>
+                    <p>Menu Combo Rwek adalah pilihan sempurna bagi Anda yang ingin menikmati pengalaman</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo3.jpg" alt="Combo Gokil" class="food-img">
+                    <h3>Combo Gokil</h3>
+                    <p>Rp 20.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Gokil', 20000)">Order</button>
+                    <p>Combo Gokil adalah paket manis dan berenergi yang siap membuat hari Anda semakin seru</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo4.jpg" alt="Combo Boring" class="food-img">
+                    <h3>Combo Boring</h3>
+                    <p>Rp 35.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Boring', 35000)">Order</button>
+                    <p>Combo Boring adalah sajian yang jauh dari kata membosankan.</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo5.jpg" alt="Combo Sumbu" class="food-img">
+                    <h3>Combo Sumbu</h3>
+                    <p>Rp 35.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Sumbu', 35000)">Order</button>
+                    <p>Combo Sumbu adalah pilihan menu yang siap membakar semangat anda.</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo6.jpg" alt="Combo Rekan" class="food-img">
+                    <h3>Combo Rekan</h3>
+                    <p>Rp.25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Rekan', 25000)">Order</button>
+                    <p>Combo Rekan adalah sajian sempurna untuk anda yang menginginkan kombinasi kenikmatan manis dan lembut.</p>
+                </div>
+            </div>
+            <div class="food-item">
+                <div class="food-content">
+                    <img src="combo7.jpg" alt="Combo Walker" class="food-img">
+                    <h3>Combo Walker</h3>
+                    <p>Rp 25.000</p>
+                </div>
+                <div class="food-description">
+                    <button class="order-btn" onclick="addToCart('Combo Walker', 25000)">Order</button>
+                    <p>Combo Walker adalah paket camilan elegan yang siap memanjakan lidah</p>
+                </div>
+            </div>
+        </div>    
+        <div id="contact" class="page">
+            <h1>Contact Us</h1>
+            <div class="contact-details">
+                <h2>Our Location</h2>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0912083465697!2d112.7258073!3d-7.3280305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f961b0539047%3A0xff92a6961f7f0740!2sJl.%20Taman%20Apsari%20No.25a!5e0!3m2!1sen!2sid!4v1699474537398!5m2!1sen!2sid" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    aria-hidden="false" 
+                    tabindex="0">
+                </iframe>
+            </div>
+        
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Informasi Kontak</h2>
+                    <div class="contact-details">
+                        <p>Email: <a href="mailto:kopitiam.serenita@gmail.com">kopitiam.serenita@gmail.com</a></p>
+                        <p>Phone: <a href="tel:+6236832673223">+62 3683 2673 223</a></p>
+                        <div class="operational-hours">
+                            <p><span class="icon">&#128337;</span> Jam Operasional:</p>
+                            <p>Senin - Jumat: 08:00 - 22:00</p>
+                            <p>Sabtu - Minggu: 08:00 - 00:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div class="social-media">
+                    <h2>Sosial Media Serenita</h2>
+                    <div class="social-links">
+                        <a href="https://facebook.com/serenita" target="_blank" class="social-icon facebook">Facebook</a>
+                        <a href="https://instagram.com/serenita" target="_blank" class="social-icon instagram">Instagram</a>
+                        <a href="https://twitter.com/serenita" target="_blank" class="social-icon twitter">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+                <!-- Tambahkan lebih banyak anggota sesuai kebutuhan -->
+            </div>
+        </div>
+        
+        <div id="rating" class="page">
+            <h1>Give Us Your Rating</h1>
+            <form id="ratingForm">
+                <label for="stars">Rate your experience:</label>
+                <div id="stars" class="star-container">
+                    <i class="star" data-value="1">&#9733;</i>
+                    <i class="star" data-value="2">&#9733;</i>
+                    <i class="star" data-value="3">&#9733;</i>
+                    <i class="star" data-value="4">&#9733;</i>
+                    <i class="star" data-value="5">&#9733;</i>
+                </div>
+                <textarea id="comment" placeholder="Write your comment here..." required></textarea>
+                <button type="submit">Submit Rating</button>
+            </form>
+            <ul id="ratingList" class="rating-list"></ul>
+        </div>
+        
+
+    <!-- Cart Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-container">
+            <h2>Your Cart</h2>
+            <ul id="cartItems">
+                <!-- Items will be added dynamically here -->
+            </ul>
+            <p>Total: Rp<span id="cartTotal">0</span></p>
+           <!-- Payment Section -->
+            <div class="payment-section">
+                <h3>Payment</h3>
+                <p>Scan the QR code to pay:</p>
+                <img src="qriss.jpg" alt="QR Code" class="qr-code-img">
+            </div>
+            <button id="checkoutBtn">Checkout</button>
+            <button class="backbtn" onclick="closeCart()">Back</button>
+        </div>
+    </div>
+    <!-- Tombol Live Chat -->
+<div class="chat-button" onclick="toggleChat()">
+    💬 Chat with Serenita
+</div>
+
+<!-- Popup Live Chat -->
+<div class="chat-popup" id="chatPopup">
+    <div class="chat-header">
+        <h4>Live Chat</h4>
+        <button class="close-btn" onclick="toggleChat()">×</button>
+    </div>
+    <div class="chat-body">
+        <p>Hallo Ada Yang Bisa Kami Bantu?</p>
+    </div>
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleEnter(event)">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
+<div id="blog" class="page">
+    <h1 class="main-title">Our Blog</h1>
+    <section class="welcome-section">
+        <h2>Selamat Datang di Serenita: Kenyamanan Kopitiam dengan Sentuhan Teknologi</h2>
+        <p>Di Serenita, kami percaya bahwa menikmati makanan dan minuman bukan hanya soal rasa, tapi juga pengalaman yang menyeluruh. Dengan sentuhan modern, setiap meja kami dilengkapi barcode unik yang menghubungkan Anda langsung ke situs pemesanan. Tak perlu lagi menunggu atau memanggil pelayan cukup pindai, pilih menu, dan lakukan pembayaran secara efisien melalui perangkat Anda.</p>
+        <p>Kami juga ingin Anda merasakan keistimewaan di balik setiap sajian. Misalnya, Kopi O Serenita kami membawa Anda pada kehangatan pagi klasik dengan resep kopi yang sempurna. Setiap teguk adalah cerita dari sejarah kopi yang panjang, dipadukan dengan sentuhan kami yang membuatnya terasa istimewa. Atau coba menu makanan kami yang terbuat dari bahan-bahan pilihan.</p>
+        <p>Nikmati pengalaman kuliner di Serenita, di mana cerita dan cita rasa berpadu dengan kenyamanan teknologi.</p>
+    </section>
+    <section class="blog-container">
+        <div class="blog-post">
+            <img src="blog3.jpg" alt="Blog Image 1" class="blog-img">
+            <h2>Exploring the Art of Coffee Brewing</h2>
+            <p>Di bagian ini, pelanggan dapat mengenal lebih dalam tentang seni meracik kopi. Serenita berbagi teknik pembuatan serta rahasia untuk menghasilkan secangkir kopi yang sempurna. Setiap proses yang ditampilkan dirancang untuk memperlihatkan kualitas dan keunikan rasa, sehingga setiap tegukan kopi di Serenita memiliki karakteristik tersendiri.</p>
+            <a href="https://memorandum.disway.id/read/94958/seni-meracik-kopi-panduan-lengkap-menyeduh-kopi-terbaik" class="read-more" target="_blank">Read More</a>        
+        </div>
+        <div class="blog-post">
+            <img src="blog2.jpg" alt="Blog Image 2" class="blog-img">
+            <h2>Why Local Ingredients Matter</h2>
+            <p>Serenita percaya bahwa penggunaan bahan-bahan lokal bukan hanya tentang mendukung komunitas sekitar, tetapi juga memastikan kualitas yang segar dan autentik. Di bagian ini, pelanggan bisa belajar tentang pentingnya bahan lokal dan bagaimana Serenita memilih bahan dari sumber-sumber berkelanjutan, demi menciptakan menu yang sehat dan ramah lingkungan</p>
+            <a href="https://www.crio.co.id/news/why-we-buy-local" class="read-more" target="_blank">Read More</a>
+        </div>
+        <div class="blog-post">
+            <img src="blog1.jpg" alt="Blog Image 3" class="blog-img">
+            <h2>The Origins of Our Coffee Blends</h2>
+            <p>Serenita membawa pelanggan dalam perjalanan mengenal asal usul biji kopi yang digunakan dalam setiap campuran kopi spesialnya. Bagian ini mengungkap sejarah dan sumber biji kopi pilihan, memberikan pandangan yang lebih mendalam tentang kualitas dan karakteristik unik dari setiap campuran kopi yang disajikan</p>
+            <a href="https://kopimu.id/seni-meracik-kopi-mengungkap-rahasia-di-balik-setiap-tetesnya/" class="read-more" target="_blank">Read More</a>
+        </div>
+        <div class="team-gallery">
+            <div class="team-member">
+                <img src="tim1.jpg" alt="Member 1">
+                <h4>Rafi Andika Rizqi Pratama</h4>
+                <p>Hipster</p>
+            </div>
+            <div class="team-member">
+                <img src="tim2.jpg" alt="Member 2">
+                <h4>Frendy Brilyan Pratama</h4>
+                <p>Hacker</p>
+            </div>
+            <div class="team-member">
+                <img src="tim6.jpg" alt="Member 3">
+                <h4>Naufal Hanif Nugroho</h4>
+                <p>Hipster</p>
+            </div>
+            <div class="team-member">
+                <img src="tim3.jpg" alt="Member 4">
+                <h4>Jessica Ophelia Natalia Siagian</h4>
+                <p>Hipster</p>
+            </div>
+            <div class="team-member">
+                <img src="tim4.jpg" alt="Member 5">
+                <h4>Khansa Yusti Ramadhaning Putri</h4>
+                <p>Hustler</p>
+            </div>
+            <div class="team-member">
+                <img src="tim5.jpg" alt="Member 6">
+                <h4>Ahmad Dimyati Abdul Adim</h4>
+                <p>Hustler</p>
+            </div>
+            <div class="team-member">
+                <img src="tim7.jpg" alt="Member 7">
+                <h4>Nuril Hanifa</h4>
+                <p>Hustler</p>
+            </div>
+            <div class="team-member">
+                <img src="tim8.jpg" alt="Member 6">
+                <h4>Ahmad zain faradis</h4>
+                <p>Hacker</p>
+            </div>
+            <div class="team-member">
+                <img src="tim9.jpg" alt="Member 6">
+                <h4>Fitri Nur Aisyah</h4>
+                <p>Hipster</p>
+            </div>
+            <!-- Tambahkan lebih banyak anggota sesuai kebutuhan -->
+        </div>
+    </section>
+</div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

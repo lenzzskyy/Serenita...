@@ -2,7 +2,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
@@ -354,6 +354,7 @@ body, html {
     text-decoration: none;
 }
 
+
 .nav-links {
     display: flex;
 }
@@ -491,12 +492,6 @@ body {
     align-items: center;
 }
 
-.our-mission li::before {
-    content: "✔";
-    margin-right: 12px;
-    color: #ffffff; /* Warna cerah untuk simbol checklist */
-    font-size: 20px;
-}
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
@@ -530,6 +525,7 @@ body {
         width: 200px;
         padding: 10px;
         border-radius: 10px;
+        z-index: 1000; /* Tambahkan z-index lebih tinggi dari elemen lainnya */
     }
 
     .nav-links ul {
@@ -803,4 +799,50 @@ textarea#comment {
 .rating-item strong {
     color: gold;
     font-size: 1.2rem;
+}
+/* Secara default, body dan html harus diatur agar dapat menggulir */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+}
+
+.best-seller {
+    padding: 20px;
+    text-align: center;
+    overflow: auto;
+}
+
+.best-seller-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+/* Responsif: Ubah layout menjadi kolom tunggal pada layar kecil */
+@media (max-width: 768px) {
+    .best-seller-items {
+        grid-template-columns: 1fr; /* Kolom tunggal pada layar kecil */
+    }
+
+    .food-item {
+        margin-bottom: 20px;
+    }
+
+    .food-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .order-btn {
+        width: 100%; /* Tombol pesan menyesuaikan lebar */
+        padding: 10px;
+    }
+}
+
+/* Untuk membuat halaman scrollable */
+body {
+    overflow-y: auto;
 }

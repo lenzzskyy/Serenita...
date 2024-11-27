@@ -11,6 +11,11 @@ function navigateTo(pageId) {
 let cart = [];
 let total = 0;
 
+// Fungsi untuk memformat angka ke format Rupiah
+function formatRupiah(amount) {
+    return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
 // Tambahkan item ke dalam cart
 function addToCart(item, price) {
     cart.push({ item, price });
@@ -27,13 +32,15 @@ function updateCartUI() {
     cartItems.innerHTML = "";
     cart.forEach((cartItem) => {
         const li = document.createElement("li");
-        li.textContent = `${cartItem.item} - Rp${cartItem.price}`;
+        li.textContent = `${cartItem.item} - Rp${formatRupiah(cartItem.price)}`;
         cartItems.appendChild(li);
     });
 
     const cartTotal = document.getElementById("cartTotal");
-    cartTotal.textContent = total.toFixed(2);
+    cartTotal.textContent = formatRupiah(total.toFixed(0));
 }
+
+
 
 // Tampilkan modal cart
 function showCart() {
@@ -219,96 +226,3 @@ function removeRating(index) {
     displayRatings(); // Update the display
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    const ratingForm = document.getElementById("ratingForm");
-    const starContainer = document.getElementById("stars");
-    const commentTextarea = document.getElementById("comment");
-    const ratingList = document.getElementById("ratingList");
-
-    // Load ratings from localStorage when page loads
-    loadRatings();
-
-    // Event listener for star rating
-    starContainer.addEventListener("click", function(event) {
-        if (event.target.classList.contains("star")) {
-            const ratingValue = event.target.getAttribute("data-value");
-            // Highlight the stars based on the rating
-            updateStars(ratingValue);
-        }
-    });
-
-    // Event listener for form submission
-    ratingForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-        const ratingValue = getSelectedRating();
-        const comment = commentTextarea.value;
-
-        if (ratingValue && comment) {
-            // Create a new rating object
-            const newRating = {
-                rating: ratingValue,
-                comment: comment
-            };
-
-            // Save new rating to localStorage
-            saveRating(newRating);
-
-            // Reset form
-            commentTextarea.value = "";
-            updateStars(0);
-
-            // Load updated ratings
-            loadRatings();
-        }
-    });
-
-    // Function to get the selected rating value
-    function getSelectedRating() {
-        const selectedStar = starContainer.querySelector(".selected");
-        return selectedStar ? selectedStar.getAttribute("data-value") : null;
-    }
-
-    // Function to update star visuals based on selected rating
-    function updateStars(ratingValue) {
-        const stars = starContainer.querySelectorAll(".star");
-        stars.forEach(star => {
-            if (star.getAttribute("data-value") <= ratingValue) {
-                star.classList.add("selected");
-            } else {
-                star.classList.remove("selected");
-            }
-        });
-    }
-
-    // Function to save rating to localStorage
-    function saveRating(rating) {
-        let ratings = JSON.parse(localStorage.getItem("ratings")) || [];
-        ratings.push(rating);
-        localStorage.setItem("ratings", JSON.stringify(ratings));
-    }
-
-    // Function to load ratings from localStorage and display them
-    function loadRatings() {
-        const ratings = JSON.parse(localStorage.getItem("ratings")) || [];
-        ratingList.innerHTML = ""; // Clear existing ratings list
-
-        ratings.forEach((rating, index) => {
-            const listItem = document.createElement("li");
-            listItem.className = "rating-item";
-            listItem.innerHTML = `
-                <strong>Rating: ${rating.rating} stars</strong>
-                <p>${rating.comment}</p>
-                <button class="remove-btn" onclick="removeRating(${index})">Remove</button>
-            `;
-            ratingList.appendChild(listItem);
-        });
-    }
-
-    // Function to remove rating from localStorage
-    window.removeRating = function(index) {
-        let ratings = JSON.parse(localStorage.getItem("ratings")) || [];
-        ratings.splice(index, 1);
-        localStorage.setItem("ratings", JSON.stringify(ratings));
-        loadRatings(); // Reload ratings after removal
-    }
-});
